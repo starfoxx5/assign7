@@ -58,14 +58,14 @@ houses.forEach(house => {
   gothouseElement.appendChild(optionElement(house.name, house.code));
 });
 
-// Handle house change event
+// handle house change event
 gothouseElement.addEventListener("change", e => {
-  // The value of the event target is the house code
+  // value of the event target is the house code
   const gotCharacters = getCharacters(e.target.value);
   const gotCharacterElement = document.getElementById("characters");
-  // Empty the list
+  // this empties out the list
   gotCharacterElement.innerHTML = "";
-  // Add each character to the list
+  // add each character to the list
   gotCharacters.forEach(character => {
     gotCharacterElement.appendChild(createLiElement(character));
   });
