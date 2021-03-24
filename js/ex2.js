@@ -20,7 +20,7 @@ var countryElement = document.querySelector("input");
 const suggestionsElement = document.getElementById("suggestions");
 
 // Create and return a suggestion
-const suggestionsElement = country => {
+const createSuggestionElement = country => {
   const element = document.createElement("div");
   element.classList.add("suggestion");
   element.textContent = country;
@@ -56,7 +56,7 @@ countryElement.addEventListener("input", () => {
 
       if (country.startsWith(countryElement.value)) {
         // Add the country as suggestion
-        suggestionsElement.appendChild(suggestionsElement(country));
+        suggestionsElement.appendChild(createSuggestionElement(country));
       }
     }
   });
