@@ -16,9 +16,7 @@ const countryList = [
   "Azerbaïjan"
 ];
 
-
-
-const countryElement = document.querySelector("input");
+var countryElement = document.querySelector("input");
 const suggestionsElement = document.getElementById("suggestions");
 
 // Create and return a suggestion
@@ -36,15 +34,29 @@ const createSuggestionElement = country => {
   return element;
 };
 
+// Example of extrapolating conditional logic to a function (See line 51)
+function isEntryValid() {
+  return (
+    countryElement.value !== ""
+  );
+};
+
 // Handle input change
 countryElement.addEventListener("input", () => {
   // Empty suggestion list
   suggestionsElement.innerHTML = "";
+  
   countryList.forEach(country => {
     // Check if the inputted value matches the start of the country
-    if (country.startsWith(countryElement.value)) {
-      // Add the country as suggestion
-      suggestionsElement.appendChild(createSuggestionElement(country));
+    if (isEntryValid()) {
+
+      // Automatically capitalize first letter of input
+      countryElement.value = countryElement.value[0].toUpperCase() + countryElement.value.slice(1); 
+
+      if (country.startsWith(countryElement.value)) {
+        // Add the country as suggestion
+        suggestionsElement.appendChild(createSuggestionElement(country));
+      }
     }
   });
 });

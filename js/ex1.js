@@ -46,7 +46,7 @@ const createOptionElement = (text, value) => {
   return element;
 };
 
-// Create and return and HTML <li> tag
+// Create and return an HTML <li> tag
 const createLiElement = text => {
   const element = document.createElement("li");
   element.textContent = text;
