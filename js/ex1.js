@@ -38,7 +38,7 @@ const getCharacters = houseCode => {
   }
 };
 
-// create & return the <option> tag
+// create & return the <option' tag
 const createOptionElement = (text, value) => {
   const element = document.createElement("option");
   element.textContent = text;
