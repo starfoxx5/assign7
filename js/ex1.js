@@ -38,15 +38,15 @@ const getCharacters = houseCode => {
   }
 };
 
-// create & return the 'option' tag
-const optionElement = (text, value) => {
+// create & return the <option> tag
+const createOptionElement = (text, value) => {
   const element = document.createElement("option");
   element.textContent = text;
   element.value = value;
   return element;
 };
 
-// create & return the 'li' tag
+// create & return the <li> tag
 const createLiElement = text => {
   const element = document.createElement("li");
   element.textContent = text;
@@ -57,18 +57,18 @@ const houseElement = document.querySelector("select");
 
 // fill the house list with a loop
 houses.forEach(house => {
-  houseElement.appendChild(optionElement(house.name, house.code));
+  houseElement.appendChild(createOptionElement(house.name, house.code));
 });
 
 // Handle house change event
 houseElement.addEventListener("change", e => {
   // The value of the event target is the house code
-  const gotCharacters = getCharacters(e.target.value);
-  const gotCharacterElement = document.getElementById("characters");
+  const characters = getCharacters(e.target.value);
+  const characterElement = document.getElementById("characters");
   // Empty the list
   characterElement.innerHTML = "";
   // Add each character to the list
-  gotCharacters.forEach(character => {
-    gotCharacterElement.appendChild(createLiElement(character));
+  characters.forEach(character => {
+    characterElement.appendChild(createLiElement(character));
   });
 });
