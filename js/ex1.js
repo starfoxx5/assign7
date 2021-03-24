@@ -1,5 +1,3 @@
-// Character List for Game of Thrones
-
 
 // Character list with a name and a code for each house
 const houses = [
@@ -38,37 +36,37 @@ const getCharacters = houseCode => {
   }
 };
 
-// create & return the <option' tag
-const createOptionElement = (text, value) => {
+// create & return the 'option' tag
+const optionElement = (text, value) => {
   const element = document.createElement("option");
   element.textContent = text;
   element.value = value;
   return element;
 };
 
-// create & return the <li> tag
+// create & return the 'li' tag
 const createLiElement = text => {
   const element = document.createElement("li");
   element.textContent = text;
   return element;
 };
 
-const houseElement = document.querySelector("select");
+const gothouseElement = document.querySelector("select");
 
 // fill the house list with a loop
 houses.forEach(house => {
-  houseElement.appendChild(createOptionElement(house.name, house.code));
+  gothouseElement.appendChild(optionElement(house.name, house.code));
 });
 
 // Handle house change event
-houseElement.addEventListener("change", e => {
+gothouseElement.addEventListener("change", e => {
   // The value of the event target is the house code
-  const characters = getCharacters(e.target.value);
-  const characterElement = document.getElementById("characters");
+  const gotCharacters = getCharacters(e.target.value);
+  const gotCharacterElement = document.getElementById("characters");
   // Empty the list
-  characterElement.innerHTML = "";
+  gotCharacterElement.innerHTML = "";
   // Add each character to the list
-  characters.forEach(character => {
-    characterElement.appendChild(createLiElement(character));
+  gotCharacters.forEach(character => {
+    gotCharacterElement.appendChild(createLiElement(character));
   });
 });
